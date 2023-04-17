@@ -1,0 +1,134 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"armor.knight.walk": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"frontCloth": {
+					"rotation": {
+						"0.0": {
+							"vector": [-12.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.25": {
+							"vector": [-20, 0, 0],
+							"easing": "linear"
+						},
+						"0.5": {
+							"vector": [-12.5, 0, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"cloak": {
+					"rotation": {
+						"0.0": {
+							"vector": [27.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.25": {
+							"vector": [32, 0, 0],
+							"easing": "linear"
+						},
+						"0.5": {
+							"vector": [27.5, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		},
+		"armor.knight.walk_crouch": {
+			"loop": true,
+			"animation_length": 0.6,
+			"bones": {
+				"frontCloth": {
+					"rotation": {
+						"0.0": {
+							"vector": [-32.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.15": {
+							"vector": [-25.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.3": {
+							"vector": [-32.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.45": {
+							"vector": [-39.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.6": {
+							"vector": [-32.5, 0, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"cloak": {
+					"rotation": {
+						"0.0": {
+							"vector": [27.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.3": {
+							"vector": [32.5, 0, 0],
+							"easing": "linear"
+						},
+						"0.6": {
+							"vector": [27.5, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		},
+		"armor.knight.idle": {
+			"loop": true,
+			"animation_length": 0.0,
+			"bones": {
+				"frontCloth": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"cloak": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		},
+		"armor.knight.idle_crouch": {
+			"loop": true,
+			"animation_length": 0.0,
+			"bones": {
+				"frontCloth": {
+					"rotation": {
+						"0.0": {
+							"vector": [-40.5, 0, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"cloak": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}
