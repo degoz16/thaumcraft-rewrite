@@ -7,6 +7,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -22,6 +23,7 @@ import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Set;
 
 public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
@@ -39,7 +41,14 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public CrystalBlock() {
-        super(Properties.of(BlockMaterials.CRYSTAL).strength(0.5F).sound(SoundType.AMETHYST_CLUSTER));
+        super(
+                Properties.of(BlockMaterials.CRYSTAL)
+                        .strength(0.5F)
+                        .sound(SoundType.AMETHYST_CLUSTER)
+                        .noOcclusion()
+                        .noCollission()
+                        .lightLevel(state -> 5)
+        );
 
         registerDefaultState(stateDefinition.any()
                 .setValue(UP, false)
@@ -70,7 +79,7 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
 
     private BlockState getState(Level world, BlockPos pos) {
         FluidState fluidState = world.getFluidState(pos);
-        LOGGER.debug("getState");
+
         return defaultBlockState()
                 .setValue(UP, false)
                 .setValue(DOWN, isBlockAvailableForPlacing(world, pos, Direction.DOWN))
@@ -107,9 +116,42 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
                 super.canBeReplaced(blockState, placeContext);
     }
 
+//    @Override
+//    public VoxelShape getOcclusionShape(BlockState state, BlockGetter worldIn, BlockPos pos) {
+//        return Shapes.empty();
+//    }
+
+//    @Override
+//    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+//        return Shapes.empty();
+//    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public void neighborChanged(
+            @Nonnull BlockState state,
+            @Nonnull Level world,
+            @Nonnull BlockPos pos,
+            @Nonnull Block block,
+            @Nonnull BlockPos pos1,
+            boolean b
+    ) {
+        super.neighborChanged(state, world, pos, block, pos1, b);
+        BlockState newState = getState(world, pos);
+        if (!canSurvive(newState, world, pos)) {
+            destroy(world, pos, null);
+            return;
+        }
+        world.setBlockAndUpdate(pos, newState);
+    }
+
+    @Override
+    public void destroy(LevelAccessor world, @Nonnull BlockPos pos, @Nullable BlockState state) {
+        world.destroyBlock(pos, true);
+    }
+
     private static boolean isBlockAvailableForPlacing(LevelReader world, BlockPos pos, Direction facing) {
         BlockState state = world.getBlockState(pos.relative(facing));
-        LOGGER.debug("{} {}", facing, AVAILABLE_MATERIALS.contains(state.getMaterial()));
         return AVAILABLE_MATERIALS.contains(state.getMaterial());
     }
 

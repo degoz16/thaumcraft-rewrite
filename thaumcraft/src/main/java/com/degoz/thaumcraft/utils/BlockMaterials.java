@@ -6,7 +6,12 @@ import net.minecraft.world.level.material.PushReaction;
 
 public class BlockMaterials {
 
-    public static final Material CRYSTAL = (new Builder(MaterialColor.NONE)).noCollider().notSolidBlocking().nonSolid().destroyOnPush().build();
+    public static final Material CRYSTAL = (new Builder(MaterialColor.NONE))
+            .noCollider()
+            .notSolidBlocking()
+            .nonSolid()
+            .destroyOnPush()
+            .build();
 
     public static class Builder {
         private PushReaction pushReaction = PushReaction.NORMAL;

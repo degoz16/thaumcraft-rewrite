@@ -1,7 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "block/block",
-	"texture_size": [32, 32],
+	"parent": "thaumcraft:block/crystal_block",
 	"textures": {
 		"1": "thaumcraft:block/crystal_block",
 		"particle": "thaumcraft:block/crystal_block"
@@ -10,6 +9,7 @@
 		{
 			"from": [-2.07213, -3.45966, 3.75],
 			"to": [-0.57213, 1.04034, 5.25],
+			"shade": false,
 			"rotation": {"angle": 45, "axis": "z", "origin": [-3.91047, 3, 3.3125]},
 			"faces": {
 				"north": {"uv": [12.5, 8.5, 13, 10.5], "texture": "#1"},
@@ -23,6 +23,7 @@
 		{
 			"from": [1.25, -0.77936, 2.52672],
 			"to": [3, 4.47064, 4.27672],
+			"shade": false,
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [-3.91047, 3, 3.3125]},
 			"faces": {
 				"north": {"uv": [10.5, 5.5, 11, 8], "texture": "#1"},
@@ -36,6 +37,7 @@
 		{
 			"from": [1, 0, 3.75],
 			"to": [3, 7, 5.75],
+			"shade": false,
 			"rotation": {"angle": 0, "axis": "x", "origin": [-3.91047, 3, 3.3125]},
 			"faces": {
 				"north": {"uv": [1, 6.5, 2, 10], "texture": "#1"},
@@ -49,6 +51,7 @@
 		{
 			"from": [7.96738, -1.23443, 11.98944],
 			"to": [9.46738, 2.26557, 13.48944],
+			"shade": false,
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [14.08953, 3, 15.3125]},
 			"faces": {
 				"north": {"uv": [14.5, 8.5, 15, 10], "texture": "#1"},
@@ -62,6 +65,7 @@
 		{
 			"from": [7.24342, 1.73091, 9.80406],
 			"to": [8.99342, 5.98091, 11.55406],
+			"shade": false,
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [14.08953, 3, 15.3125]},
 			"faces": {
 				"north": {"uv": [14.5, 5.5, 15, 7.5], "texture": "#1"},
@@ -75,6 +79,7 @@
 		{
 			"from": [7.96738, 0, 9.80406],
 			"to": [9.96738, 8, 11.80406],
+			"shade": false,
 			"rotation": {"angle": 0, "axis": "y", "origin": [14.08953, 3, 15.3125]},
 			"faces": {
 				"north": {"uv": [1, 1, 2, 5], "texture": "#1"},
@@ -88,6 +93,7 @@
 		{
 			"from": [11.78055, -0.61692, 8],
 			"to": [12.78055, 2.38308, 9],
+			"shade": false,
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [11.08953, 3, 13.3125]},
 			"faces": {
 				"north": {"uv": [10.5, 8.5, 11, 10], "texture": "#1"},
@@ -101,6 +107,7 @@
 		{
 			"from": [13.1, 2.64719, 7.33036],
 			"to": [14.15, 4.64719, 8.33036],
+			"shade": false,
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [11.08953, 3, 13.3125]},
 			"faces": {
 				"north": {"uv": [12.5, 11, 13, 12], "texture": "#1"},
@@ -114,6 +121,7 @@
 		{
 			"from": [13.1, -0.7096, 9.08707],
 			"to": [14.15, 1.5404, 10.08707],
+			"shade": false,
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [11.08953, 3, 13.3125]},
 			"faces": {
 				"north": {"uv": [14.5, 11, 15, 12], "texture": "#1"},
@@ -127,6 +135,7 @@
 		{
 			"from": [13, 0, 8],
 			"to": [14, 4, 9],
+			"shade": false,
 			"rotation": {"angle": 0, "axis": "x", "origin": [11.08953, 3, 13.3125]},
 			"faces": {
 				"north": {"uv": [8.5, 8.5, 9, 10.5], "texture": "#1"},
@@ -140,6 +149,7 @@
 		{
 			"from": [3.75, 0, 7],
 			"to": [5, 5, 8.25],
+			"shade": false,
 			"rotation": {"angle": 0, "axis": "y", "origin": [9.08953, 3, 2.3125]},
 			"faces": {
 				"north": {"uv": [8.5, 5.5, 9, 8], "texture": "#1"},
@@ -153,6 +163,7 @@
 		{
 			"from": [5.22409, -1.38343, 7],
 			"to": [6.47409, 2.11657, 8.25],
+			"shade": false,
 			"rotation": {"angle": -22.5, "axis": "z", "origin": [9.08953, 3, 2.3125]},
 			"faces": {
 				"north": {"uv": [14.5, 14.5, 15, 16], "texture": "#1"},
@@ -166,6 +177,7 @@
 		{
 			"from": [3.75, -1.42092, 5.51845],
 			"to": [4.75, 1.57908, 6.51845],
+			"shade": false,
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [9.08953, 3, 2.3125]},
 			"faces": {
 				"north": {"uv": [12.5, 12.5, 13, 14], "texture": "#1"},
@@ -179,6 +191,7 @@
 		{
 			"from": [6, 0, 1],
 			"to": [7, 5, 2],
+			"shade": false,
 			"rotation": {"angle": 0, "axis": "y", "origin": [8.08953, 3, 0.3125]},
 			"faces": {
 				"north": {"uv": [12.5, 5.5, 13, 8], "texture": "#1"},
@@ -192,6 +205,7 @@
 		{
 			"from": [5.16529, 1.07687, 1],
 			"to": [6.26529, 4.57687, 2.05],
+			"shade": false,
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [8.08953, 3, 0.3125]},
 			"faces": {
 				"north": {"uv": [12.5, 14.5, 13, 16], "texture": "#1"},
@@ -205,6 +219,7 @@
 		{
 			"from": [6, 0.10981, -0.17707],
 			"to": [7, 3.10981, 0.82293],
+			"shade": false,
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.08953, 3, 0.3125]},
 			"faces": {
 				"north": {"uv": [14.5, 12.5, 15, 14], "texture": "#1"},

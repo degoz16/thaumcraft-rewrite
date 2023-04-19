@@ -1,0 +1,6 @@
+{
+  "parent": "block/block",
+  "texture_size": [32, 32],
+  "render_type": "translucent",
+  "ambientocclusion": false
+}

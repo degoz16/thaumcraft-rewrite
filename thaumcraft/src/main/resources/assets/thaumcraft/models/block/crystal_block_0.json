@@ -1,7 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "block/block",
-	"texture_size": [32, 32],
+	"parent": "thaumcraft:block/crystal_block",
 	"textures": {
 		"1": "thaumcraft:block/crystal_block",
 		"particle": "thaumcraft:block/crystal_block"
