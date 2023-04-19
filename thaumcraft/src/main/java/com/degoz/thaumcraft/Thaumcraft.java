@@ -1,5 +1,6 @@
 package com.degoz.thaumcraft;
 
+import com.degoz.thaumcraft.common.blocks.ThaumcraftBlocks;
 import com.degoz.thaumcraft.common.items.ThaumcraftItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,6 +25,7 @@ public class Thaumcraft {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ThaumcraftItems.register(eventBus);
+        ThaumcraftBlocks.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);

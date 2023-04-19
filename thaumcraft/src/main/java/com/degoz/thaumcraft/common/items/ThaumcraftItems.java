@@ -1,10 +1,13 @@
 package com.degoz.thaumcraft.common.items;
 
 import com.degoz.thaumcraft.Thaumcraft;
+import com.degoz.thaumcraft.common.blocks.ThaumcraftBlocks;
 import com.degoz.thaumcraft.common.items.items.CultistKnightArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,6 +30,10 @@ public class ThaumcraftItems {
     public static final RegistryObject<Item> CULTIST_KNIGHT_BOOTS = ITEMS.register("cultist_knight_boots",
             () -> new CultistKnightArmorItem(ThaumcraftArmorMaterials.CULTIST_ARMOR, EquipmentSlot.FEET,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+
+    // Block items
+    public static final RegistryObject<Item> CRYSTAL = ITEMS.register("crystal_item",
+            () -> new BlockItem(ThaumcraftBlocks.CRYSTAL_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
