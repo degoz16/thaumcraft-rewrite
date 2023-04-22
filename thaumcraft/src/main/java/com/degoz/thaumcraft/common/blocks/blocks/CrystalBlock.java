@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,7 +21,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -138,11 +138,23 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
     ) {
         super.neighborChanged(state, world, pos, block, pos1, b);
         BlockState newState = getState(world, pos);
-        if (!canSurvive(newState, world, pos)) {
-            destroy(world, pos, null);
-            return;
-        }
         world.setBlockAndUpdate(pos, newState);
+    }
+
+    @Nonnull
+    @SuppressWarnings("deprecation")
+    @Override
+    public BlockState updateShape(
+            @Nonnull BlockState blockState,
+            @Nonnull Direction direction,
+            @Nonnull BlockState blockStateNew,
+            @Nonnull LevelAccessor levelAccessor,
+            @Nonnull BlockPos blockPos,
+            @Nonnull BlockPos blockPos1
+    ) {
+        return !this.canSurvive(blockState, levelAccessor, blockPos)
+                ? Blocks.AIR.defaultBlockState()
+                : super.updateShape(blockState, direction, blockStateNew, levelAccessor, blockPos, blockPos1);
     }
 
     @Override
@@ -155,7 +167,7 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
         return AVAILABLE_MATERIALS.contains(state.getMaterial());
     }
 
-    private static boolean checkCanBePlaced(@NotNull LevelReader levelReader, @NotNull BlockPos blockPos) {
+    private static boolean checkCanBePlaced(@Nonnull LevelReader levelReader, @Nonnull BlockPos blockPos) {
         return Direction.Plane.HORIZONTAL.stream()
                 .anyMatch(direction -> isBlockAvailableForPlacing(levelReader, blockPos, direction)) ||
                 isBlockAvailableForPlacing(levelReader, blockPos, Direction.DOWN);
