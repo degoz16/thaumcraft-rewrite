@@ -15,9 +15,19 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ThaumcraftItems {
 
+    private ThaumcraftItems() {
+    }
+
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Thaumcraft.MOD_ID);
 
+    // Items
+    public static final RegistryObject<Item> THAUMONOMICON = ITEMS.register("thaumonomicon",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> SALIS_MUNDUS = ITEMS.register("salis_mundus",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
+    // Armor
     public static final RegistryObject<Item> CULTIST_KNIGHT_HELMET = ITEMS.register("cultist_knight_helmet",
             () -> new CultistKnightArmorItem(ThaumcraftArmorMaterials.CULTIST_ARMOR, EquipmentSlot.HEAD,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));

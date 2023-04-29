@@ -2,6 +2,9 @@ package com.degoz.thaumcraft;
 
 import com.degoz.thaumcraft.common.blocks.ThaumcraftBlocks;
 import com.degoz.thaumcraft.common.items.ThaumcraftItems;
+import com.degoz.thaumcraft.common.world.feature.ThaumcraftConfiguredFeatures;
+import com.degoz.thaumcraft.common.world.feature.ThaumcraftOreFeatures;
+import com.degoz.thaumcraft.common.world.feature.ThaumcraftPlacedFeatures;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
@@ -26,6 +29,10 @@ public class Thaumcraft {
 
         ThaumcraftItems.register(eventBus);
         ThaumcraftBlocks.register(eventBus);
+
+        ThaumcraftOreFeatures.register(eventBus);
+        ThaumcraftConfiguredFeatures.register(eventBus);
+        ThaumcraftPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);

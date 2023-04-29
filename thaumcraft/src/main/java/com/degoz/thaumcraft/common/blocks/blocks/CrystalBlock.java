@@ -1,8 +1,10 @@
 package com.degoz.thaumcraft.common.blocks.blocks;
 
+import com.degoz.thaumcraft.common.items.ThaumcraftItems;
 import com.degoz.thaumcraft.utils.BlockMaterials;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.SectionPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
@@ -24,13 +27,14 @@ import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.Set;
 
 public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final Set<Material> AVAILABLE_MATERIALS = Set.of(Material.STONE);
+    public static final Set<Material> AVAILABLE_MATERIALS = Set.of(Material.STONE);
 
     public static final BooleanProperty DOWN = BooleanProperty.create("down");
     public static final BooleanProperty UP = BooleanProperty.create("up");
@@ -95,10 +99,10 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
         builder.add(UP, DOWN, NORTH, SOUTH, EAST, WEST, WATERLOGGED);
     }
 
-    @Override
     @Nonnull
+    @Override
     public Item asItem() {
-        return super.asItem();
+        return ThaumcraftItems.CRYSTAL.get();
     }
 
     @SuppressWarnings("deprecation")
@@ -163,13 +167,15 @@ public class CrystalBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     private static boolean isBlockAvailableForPlacing(LevelReader world, BlockPos pos, Direction facing) {
+        if (facing == Direction.UP) {
+            return false;
+        }
         BlockState state = world.getBlockState(pos.relative(facing));
         return AVAILABLE_MATERIALS.contains(state.getMaterial());
     }
 
-    private static boolean checkCanBePlaced(@Nonnull LevelReader levelReader, @Nonnull BlockPos blockPos) {
-        return Direction.Plane.HORIZONTAL.stream()
-                .anyMatch(direction -> isBlockAvailableForPlacing(levelReader, blockPos, direction)) ||
-                isBlockAvailableForPlacing(levelReader, blockPos, Direction.DOWN);
+    public static boolean checkCanBePlaced(@Nonnull LevelReader levelReader, @Nonnull BlockPos blockPos) {
+        return Arrays.stream(Direction.values())
+                .anyMatch(direction -> isBlockAvailableForPlacing(levelReader, blockPos, direction));
     }
 }
