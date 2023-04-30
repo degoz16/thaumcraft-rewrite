@@ -1,5 +1,6 @@
 package com.degoz.thaumcraft;
 
+import com.degoz.thaumcraft.client.render.particle.ThaumcraftParticles;
 import com.degoz.thaumcraft.common.blocks.ThaumcraftBlocks;
 import com.degoz.thaumcraft.common.items.ThaumcraftItems;
 import com.degoz.thaumcraft.common.world.feature.ThaumcraftConfiguredFeatures;
@@ -33,6 +34,8 @@ public class Thaumcraft {
         ThaumcraftOreFeatures.register(eventBus);
         ThaumcraftConfiguredFeatures.register(eventBus);
         ThaumcraftPlacedFeatures.register(eventBus);
+
+        ThaumcraftParticles.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
